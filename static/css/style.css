@@ -1,0 +1,136 @@
+* {
+    font-family: 'Franklin Gothic Demi', 'Arial', sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.upload-container {
+  display: block;
+  border: 2px dashed #00407f;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  background-color: rgba(0, 64, 127, 0.1);
+}
+
+.upload-container:hover {
+  background-color: rgba(0, 64, 127, 0.2);
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.upload-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.upload-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #00407f;
+}
+
+
+/* FÜR SELECTION */
+.form-group {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #00407f;
+}
+
+
+.custom-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #00407f;
+  border-radius: 12px;
+  font-size: 15px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #00407f;
+
+  /* Entfernt Standard Browser Styling */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Hover */
+.custom-select:hover {
+  /* border-color: #2563eb; */
+
+  background-color: rgba(0, 64, 127, 0.2);
+}
+
+/* Focus */
+.custom-select:focus {
+  outline: none;
+  /* border-color: #2563eb; */
+  box-shadow: 0 0 0 3px rgba(0, 64, 127, 0.3);
+}
+
+
+
+
+
+
+
+
+
+/* FÜR BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px 16px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  background-color: #00407f;
+  color: white;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.submit-btn:hover {
+  background-color: rgba(0, 64, 127, 0.5);
+}
+
+/* Klick Effekt */
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Focus (Accessibility) */
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 64, 127, 0.3);
+}

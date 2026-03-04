@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <link href="{{  url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+        <title>FRPG Einsatzbild</title>
+        <link rel="icon" type="image/png" href="../static/img/frpg-logo.png">
+
+        <link rel="manifest" href="/static/manifest.json">
+        <!-- IOS-Support -->
+        <link rel="apple-touch-icon" href="/static/icons/icon-512.png">
+        <meta name="apple-mobile-web-app-status-bar" content="#00407f">
+        <meta name="theme-color" content="#00407f">
+    </head>
+    <body>
+        <h1>Einsatzbild erstellen</h1>
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+
+            <!-- Upload Bereich -->
+            <div class="form-group">
+                <label class="form-label">Einsatz-Bild</label>
+
+                <label class="upload-container">
+                    <input type="file"
+                           accept="image/png, image/jpeg, image/jpg"
+                           name="file"
+                           id="fileInput"
+                           required
+                           hidden>
+
+                    <div class="upload-content">
+                        <img src="../static/img/upload-icon.png"
+                             alt="upload-icon"
+                             class="upload-icon">
+
+                        <div class="upload-text">
+                            <span id="uploadLabel">Bild auswählen</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="selection">Einsatz-Art</label>
+                <select id="selection" name="selection" required class="custom-select">
+                    <option value="chirurgisch">Chirurgisch</option>
+                    <option value="internistisch">Internistisch</option>
+                    <option value="neurologisch">Neurologisch</option>
+                    <option value="reanimation">Reanimation</option>
+                    <option value="verkehrsunfall">Verkehrsunfall</option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="submit-btn">Herunterladen</button>
+        </form>
+        <script>
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('/static/service-worker.js');
+            }
+        </script>
+    </body>
+</html>
+
