@@ -127,6 +127,46 @@ h1 {
   box-shadow: 0 0 0 3px rgba(0, 64, 127, 0.3);
 }
 
+.result-picture-container {
+  display: flex;
+  justify-content: center;
+}
+
+.result-picture {
+  width: 90%;
+  align-items: center;
+}
+
+/* Loading Screen test */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+#loading-screen p {
+  font-size: 1.5rem;
+  color: #00407f;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 7px solid rgba(0, 64, 127, 0.3);;
+    border-top: 7px solid #00407f;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 
 @media (max-width: 768px) {
   h1 {
