@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_from_directory
 from werkzeug.exceptions import RequestEntityTooLarge
-from werkzeug.utils import secure_filename
 import os
 
 from PIL import Image
@@ -35,30 +34,17 @@ def resize_and_crop_cover(image, target_size):
 
     return image.crop((left, top, right, bottom))
 
-
-
-@app.route('/hello_world')
+# Test Function
+@app.route('/test')
 def hello_world():  # put application's code here
-    return 'Hello World!'
+    return 'Test erfolgreich!'
 
-
+# Standart Function
 @app.route('/')
 def index():
-    # UNNÖTIG
-    files = os.listdir(app.config['RESULTS_FOLDER'])
+    return render_template('index.html')
 
-    #files = os.listdir(app.config['UPLOAD_FOLDER'])
-    images = []
-
-    for file in files:
-        extension = os.path.splitext(file)[1].lower()
-        if extension in app.config['ALLOWED_EXTENSIONS']:
-            images.append(file)
-
-    # BIS HIER HER
-
-    return render_template('index.html', images=images)
-
+# Upload Function
 @app.route('/upload', methods=['POST'])
 def upload():
     try:
@@ -104,15 +90,15 @@ def upload():
         return 'Bild ist größer als das Limit von 16MB.'
 
     return redirect('/preview')
+
+    #Download Browser
     #return send_from_directory(app.config['RESULTS_FOLDER'], 'Einsatz_Bild.png', as_attachment=True)
 
-# Test
+# Vorschau Seite
 @app.route('/preview')
 def preview():
-    # UNNÖTIG
     files = os.listdir(app.config['RESULTS_FOLDER'])
 
-    # files = os.listdir(app.config['UPLOAD_FOLDER'])
     images = []
 
     for file in files:
@@ -120,21 +106,12 @@ def preview():
         if extension in app.config['ALLOWED_EXTENSIONS']:
             images.append(file)
 
-    # BIS HIER HER
-
     return render_template('preview.html', images=images)
 
-# BIS HIER HER
-
-
-
-# UNNÖTIG
+# Serve Image Function
 @app.route('/serve-image/<filename>', methods=['GET'])
 def serve_image(filename):
     return send_from_directory(app.config['RESULTS_FOLDER'], filename)
-
-# BIS HIER HER
-
 
 if __name__ == '__main__':
     app.run()

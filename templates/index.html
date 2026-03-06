@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <!-- Imports -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{{  url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
+        <!-- Website -->
         <title>FRPG Einsatzbild</title>
         <link rel="icon" type="image/png" href="../static/img/frpg-logo.png">
 
+        <!-- PWA -->
         <link rel="manifest" href="/static/manifest.json">
+
         <!-- IOS-Support -->
         <link rel="apple-touch-icon" href="/static/icons/icon-512.png">
         <meta name="apple-mobile-web-app-status-bar" content="#00407f">
@@ -55,7 +59,7 @@
                 </select>
             </div>
 
-            <!-- Test
+            <!-- Download Button
 
             <button type="submit" class="submit-btn">Herunterladen</button>
 
@@ -78,7 +82,7 @@
                 document.getElementById("loading-screen").style.display = "flex";
             });
 
-            // TEST
+            // Preview Image Function
 
             const fileInput = document.getElementById("fileInput");
             const preview = document.getElementById("previewImage");
