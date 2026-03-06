@@ -13,14 +13,15 @@ h1 {
 
 .upload-container {
   display: block;
-  border: 2px dashed #00407f;
-  border-radius: 12px;
   padding: 40px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
-
   background-color: rgba(0, 64, 127, 0.1);
+  position: relative;
+  border: 2px dashed #00407f;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .upload-container:hover {
@@ -28,10 +29,14 @@ h1 {
 }
 
 .upload-content {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  justify-content: center; /* vertikal */
+  align-items: center;     /* horizontal */
+  text-align: center;
+  gap: 8px;
 }
 
 .upload-icon {
@@ -46,6 +51,15 @@ h1 {
   color: #00407f;
 }
 
+/* Preview Bild */
+#previewImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
 
 /* FÜR SELECTION */
 .form-group {
@@ -59,7 +73,6 @@ h1 {
   font-weight: 500;
   color: #00407f;
 }
-
 
 .custom-select {
   width: 100%;
@@ -80,15 +93,12 @@ h1 {
 
 /* Hover */
 .custom-select:hover {
-  /* border-color: #2563eb; */
-
   background-color: rgba(0, 64, 127, 0.2);
 }
 
 /* Focus */
 .custom-select:focus {
   outline: none;
-  /* border-color: #2563eb; */
   box-shadow: 0 0 0 3px rgba(0, 64, 127, 0.3);
 }
 
@@ -97,15 +107,12 @@ h1 {
   width: 100%;
   margin-top: 25px;
   padding: 14px 16px;
-
   border: none;
   border-radius: 12px;
-
   font-size: 16px;
   font-weight: 600;
   background-color: #00407f;
   color: white;
-
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -156,7 +163,7 @@ h1 {
 .spinner {
     width: 60px;
     height: 60px;
-    border: 7px solid rgba(0, 64, 127, 0.3);;
+    border: 7px solid rgba(0, 64, 127, 0.3);
     border-top: 7px solid #00407f;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -166,12 +173,10 @@ h1 {
     to { transform: rotate(360deg); }
 }
 
-
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
     margin-top: 2rem;
-    text-align: center;
   }
 
   form {
@@ -180,176 +185,30 @@ h1 {
   }
 
   .upload-container {
-    position: relative;
     height: 150px;
-
-    border: 2px dashed #00407f;
-    border-radius: 12px;
-
-    overflow: hidden;
-  }
-
-  .upload-container:hover {
-    background-color: rgba(0, 64, 127, 0.2);
-  }
-
-  /* Zentrierung */
-  .upload-content {
-      position: absolute;
-      inset: 0;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* vertikal */
-      align-items: center;     /* horizontal */
-
-      text-align: center;
-      gap: 8px;
   }
 
   .upload-icon {
     width: 60px;
     height: 60px;
-    object-fit: contain;
   }
 
   .upload-text {
     font-size: 1.25rem;
-    font-weight: 500;
-    color: #00407f;
-  }
-
-  /* Preview Bild darüber */
-  #previewImage {
-      position: absolute;
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-
-      display: none;
-  }
-
-
-  /* FÜR SELECTION */
-  .form-group {
-    width: 100%;
-    margin-top: 20px;
   }
 
   .form-group label {
-    display: block;
     margin-bottom: 20px;
-    font-weight: 500;
-    color: #00407f;
     font-size: 1.25rem;
   }
-
 
   .custom-select {
-    width: 100%;
-    padding: 14px 16px;
-    border: 2px solid #00407f;
-    border-radius: 12px;
     font-size: 1.25rem;
-    background-color: white;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: #00407f;
-
-    /* Entfernt Standard Browser Styling */
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-
-  /* Hover */
-  .custom-select:hover {
-    /* border-color: #2563eb; */
-
-    background-color: rgba(0, 64, 127, 0.2);
-  }
-
-  /* Focus */
-  .custom-select:focus {
-    outline: none;
-    /* border-color: #2563eb; */
-    box-shadow: 0 0 0 3px rgba(0, 64, 127, 0.3);
   }
 
   /* FÜR BUTTON */
   .submit-btn {
-    width: 100%;
     margin-top: 2rem;
-    padding: 14px 16px;
-
-    border: none;
-    border-radius: 12px;
-
     font-size: 1.5rem;
-    font-weight: 600;
-
-    background-color: #00407f;
-    color: white;
-
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  /* Hover */
-  .submit-btn:hover {
-    background-color: rgba(0, 64, 127, 0.5);
-  }
-
-  /* Klick Effekt */
-  .submit-btn:active {
-    transform: scale(0.98);
-  }
-
-  /* Focus (Accessibility) */
-  .submit-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 64, 127, 0.3);
-  }
-
-  .result-picture-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .result-picture {
-    width: 90%;
-    align-items: center;
-  }
-
-  /* Loading Screen test */
-  #loading-screen {
-    position: fixed;
-    inset: 0;
-    background: white;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 9999;
-  }
-
-  #loading-screen p {
-    font-size: 1.5rem;
-    color: #00407f;
-  }
-
-  .spinner {
-      width: 60px;
-      height: 60px;
-      border: 7px solid rgba(0, 64, 127, 0.3);;
-      border-top: 7px solid #00407f;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-      to { transform: rotate(360deg); }
   }
 }
